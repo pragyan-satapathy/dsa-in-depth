@@ -1,0 +1,26 @@
+// https://leetcode.com/problems/diameter-of-binary-tree/
+
+/**
+ * Definition for a binary tree node.
+ * function TreeNode(val, left, right) {
+ *     this.val = (val===undefined ? 0 : val)
+ *     this.left = (left===undefined ? null : left)
+ *     this.right = (right===undefined ? null : right)
+ * }
+ */
+/**
+ * @param {TreeNode} root
+ * @return {number}
+ */
+var diameterOfBinaryTree = function(root) {
+    let res = 0
+    function height(root) {
+        if (!root) return 0
+        const l = height(root.left)
+        const r = height(root.right)
+        res = Math.max(l+r, res)
+        return Math.max(l,r)+1
+    }
+     height(root)
+     return res
+};
