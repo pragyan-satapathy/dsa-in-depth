@@ -1,0 +1,30 @@
+Shortest Path Algorithms
+===========================
+BFS (Unweighted Graph): 
+-------------------------
+It is used to calculate the distance between source and destination in Unweighted 
+(no weights on edges) graph.
+
+
+
+
+Dijkstra’s (Weighted):
+-------------------------
+It is used to calculates distance in Weighted Graph. It uses Priority Queue and Greedy Algorithm.
+
+Drawback: It doesn't work on the negative weight edges.
+
+
+
+
+Bellman–Ford Algorithm (Weighted + Negative): 
+----------------------------------------------
+It calculates distance for the Weighted and Negative Edges as well.
+Note: These above three algorithms are the 'Single Source Shortest Path' Algorithm.
+
+
+
+
+Floyd–Warshall (All pairs shortest path):
+--------------------------------------------
+It calculates all pairs of shortest path algorithm.
