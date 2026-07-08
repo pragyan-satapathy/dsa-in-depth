@@ -21,3 +21,20 @@ class Solution:
             # Best profit buying on day i: sell on the day with max price after i
             res = max(localMax[i + 1] - prices[i], res)
         return res
+
+
+
+# Optimal Approach: Track running minimum
+# Instead of precomputing a suffix-max array, just track the lowest price seen
+# so far as we scan left-to-right. At each day, the best profit if we sell today
+# is (today's price - lowest price seen before today).
+# Time: O(n)  Space: O(1)
+# ============
+class Solution:
+    def maxProfit(self, prices: List[int]) -> int:
+        localMin = prices[0]  # cheapest buy price seen so far
+        res = 0
+        for i in prices:
+            localMin = min(localMin, i)      # update cheapest buy price
+            res = max(res, i - localMin)     # best profit if we sell today
+        return res
