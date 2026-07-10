@@ -24,7 +24,7 @@ class Solution:
 
 
 
-# Optimal Approach: Track running minimum
+# Optimal Approach: Track running minimum (https://leetcode.com/problems/best-time-to-buy-and-sell-stock/?envType=company&envId=microsoft&favoriteSlug=microsoft-thirty-days)
 # Instead of precomputing a suffix-max array, just track the lowest price seen
 # so far as we scan left-to-right. At each day, the best profit if we sell today
 # is (today's price - lowest price seen before today).
