@@ -24,3 +24,25 @@ class Solution:
             for ch in freq[f]:
                 res += (ch * f)   # repeat the character f times
         return res
+
+
+# Optimal Approach: Bucket Sort
+# https://leetcode.com/problems/sort-characters-by-frequency/?envType=company&envId=microsoft&favoriteSlug=microsoft-thirty-days
+# A character can appear at most len(s) times, so we can use an array of size
+# len(s)+1 as buckets indexed by frequency — eliminating the sort step entirely.
+# Time: O(n)  Space: O(n)
+class Solution:
+    def frequencySort(self, s: str) -> str:
+        # bucket[f] holds all characters that appear exactly f times
+        bucket = [[] for _ in range(len(s) + 1)]
+        count = Counter(s)
+        for ch, freq in count.items():
+            bucket[freq].append(ch)
+
+        res = []
+        # iterate from highest frequency down to 1, collecting characters
+        for freq in range(len(s), 0, -1):
+            for ch in bucket[freq]:
+                res.append(ch * freq)   # repeat the character freq times
+
+        return "".join(res)
